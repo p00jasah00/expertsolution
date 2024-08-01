@@ -74,14 +74,11 @@ class FrontendController extends Controller
 
     public function dashboard(Request $request)
     {
-        // Get the total number of inventory items
-        $totalInventory = Inventory::count();
+        $totalInventory = Inventory::count(); // Get the total number of inventory items
         
-        // Retrieve the username from the session or default to 'Guest'
-        $userName = $request->session()->get('user_name', 'Guest'); // Ensure 'user_name' is correctly set in the session
-        
+       
         // Pass both variables to the view
-        return view('frontend.dashboard', compact('totalInventory', 'userName'));
+        return view('frontend.dashboard', compact('totalInventory'));
     }
 }
 
